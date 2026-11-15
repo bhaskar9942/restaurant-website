@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YPD Foods</title>
+    <meta name="description" content="Explore the YPD Foods menu, featuring biryani, starters, drinks, desserts and ice creams.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,6 +23,10 @@
             --accent-color: #4CAF50;
             --dark-color: #333;
             --light-color: #FFF8E1;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -114,6 +122,23 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            border: 0;
+            padding: 8px;
+            background: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         .bar {
@@ -193,6 +218,7 @@
 
         .food-section {
             padding: 80px 20px;
+            scroll-margin-top: 90px;
         }
 
         .food-container {
@@ -292,14 +318,14 @@
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="logo">
-            <a href="#" class="logo-text">YPD Foods</a>
+            <a href="#home" class="logo-text" aria-label="YPD Foods home">YPD Foods</a>
         </div>
 
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="primary-navigation">
             <li class="nav-item">
-                <a href="#" class="nav-link">Home</a>
+                <a href="#home" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
                 <a href="#biryani" class="nav-link">Biryani</a>
@@ -321,24 +347,25 @@
             </li>
         </ul>
 
-        <div class="hamburger">
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-        </div>
+        </button>
     </nav>
 
-    <div class="hero">
+    <header class="hero" id="home">
         <h1> YPD Foods</h1>
         <p>Authentic home-style dishes made with love and tradition</p>
         <a href="#biryani" class="btn">Explore Our Menu</a>
-    </div>
+    </header>
 
+    <main>
     <section id="biryani" class="food-section">
         <h2 class="section-title">Biryani Specialties</h2>
         <div class="food-container">
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2022/06/27/05/37/biryani-7286737_1280.jpg" alt="Chicken Biryani" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2022/06/27/05/37/biryani-7286737_1280.jpg" alt="Chicken Biryani" class="food-img">
                 <div class="food-info">
                     <h3>Chicken Biryani</h3>
                     <p>Fragrant basmati rice cooked with tender chicken pieces and aromatic spices</p>
@@ -347,7 +374,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2024/01/18/17/20/ai-generated-8517259_1280.jpg" alt="Mutton Biryani" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2024/01/18/17/20/ai-generated-8517259_1280.jpg" alt="Mutton Biryani" class="food-img">
                 <div class="food-info">
                     <h3>Mutton Biryani</h3>
                     <p>Rich and flavorful biryani made with succulent mutton pieces and premium spices</p>
@@ -356,7 +383,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2022/03/02/12/40/dish-7043064_1280.jpg" alt="Veg Biryani" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2022/03/02/12/40/dish-7043064_1280.jpg" alt="Veg Biryani" class="food-img">
                 <div class="food-info">
                     <h3>Veg Biryani</h3>
                     <p>Delicious biryani loaded with fresh vegetables and traditional spices</p>
@@ -370,7 +397,7 @@
         <h2 class="section-title">Tasty Starters</h2>
         <div class="food-container">
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2017/06/18/23/33/indian-snack-2417643_1280.jpg" alt="Veg Pakora" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2017/06/18/23/33/indian-snack-2417643_1280.jpg" alt="Veg Pakora" class="food-img">
                 <div class="food-info">
                     <h3>Veg Pakora</h3>
                     <p>Crispy vegetable fritters served with mint chutney</p>
@@ -379,7 +406,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2022/06/14/18/58/biryani-with-kebab-7262655_1280.jpg" alt="Chicken Kebab" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2022/06/14/18/58/biryani-with-kebab-7262655_1280.jpg" alt="Chicken Kebab" class="food-img">
                 <div class="food-info">
                     <h3>Chicken Kebab</h3>
                     <p>Juicy chicken kebabs marinated with yogurt and special spices</p>
@@ -388,7 +415,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2020/10/09/18/15/food-5641154_1280.jpg" alt="Paneer Tikka" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2020/10/09/18/15/food-5641154_1280.jpg" alt="Paneer Tikka" class="food-img">
                 <div class="food-info">
                     <h3>Paneer Tikka</h3>
                     <p>Grilled cottage cheese marinated in tandoori spices</p>
@@ -402,7 +429,7 @@
         <h2 class="section-title">Refreshing Drinks</h2>
         <div class="food-container">
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2022/10/30/05/26/mango-lassi-7556631_1280.jpg" alt="Mango Lassi" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2022/10/30/05/26/mango-lassi-7556631_1280.jpg" alt="Mango Lassi" class="food-img">
                 <div class="food-info">
                     <h3>Mango Lassi</h3>
                     <p>Creamy yogurt drink blended with fresh sweet mangoes and a hint of cardamom</p>
@@ -411,7 +438,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2018/03/12/12/31/food-3219503_1280.jpg" alt="Sweet Lassi" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2018/03/12/12/31/food-3219503_1280.jpg" alt="Sweet Lassi" class="food-img">
                 <div class="food-info">
                     <h3>Sweet Lassi</h3>
                     <p>Traditional yogurt drink sweetened with sugar and flavored with rose water</p>
@@ -420,7 +447,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2021/07/13/09/52/tea-6463072_1280.jpg" alt="Masala Chai" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2021/07/13/09/52/tea-6463072_1280.jpg" alt="Masala Chai" class="food-img">
                 <div class="food-info">
                     <h3>Masala Chai</h3>
                     <p>Traditional Indian spiced tea with milk and aromatic spices</p>
@@ -434,7 +461,7 @@
         <h2 class="section-title">Sweet Delights</h2>
         <div class="food-container">
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2014/12/22/12/33/sweets-577230_1280.jpg" alt="Rasgulla" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2014/12/22/12/33/sweets-577230_1280.jpg" alt="Rasgulla" class="food-img">
                 <div class="food-info">
                     <h3>Rasgulla</h3>
                     <p>Soft and spongy cottage cheese balls soaked in sugar syrup</p>
@@ -443,7 +470,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2021/02/03/10/55/laddu-5977496_1280.jpg" alt="Laddu" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2021/02/03/10/55/laddu-5977496_1280.jpg" alt="Laddu" class="food-img">
                 <div class="food-info">
                     <h3>Laddu</h3>
                     <p>Traditional sweet made with gram flour, sugar and ghee</p>
@@ -452,7 +479,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2022/08/23/07/20/indian-7405202_1280.jpg" alt="Gulab Jamun" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2022/08/23/07/20/indian-7405202_1280.jpg" alt="Gulab Jamun" class="food-img">
                 <div class="food-info">
                     <h3>Gulab Jamun</h3>
                     <p>Deep-fried milk solids soaked in rose-flavored sugar syrup</p>
@@ -466,7 +493,7 @@
         <h2 class="section-title">Delicious Ice Creams</h2>
         <div class="food-container">
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2018/08/16/22/59/ice-cream-3611698_1280.jpg" alt="Fruit Ice Cream" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2018/08/16/22/59/ice-cream-3611698_1280.jpg" alt="Fruit Ice Cream" class="food-img">
                 <div class="food-info">
                     <h3>Fruit Paradise</h3>
                     <p>Creamy ice cream topped with assorted fresh fruits and fruit syrup</p>
@@ -475,7 +502,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2020/02/19/16/27/ice-cream-4862623_1280.jpg" alt="Pistachio Ice Cream" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2020/02/19/16/27/ice-cream-4862623_1280.jpg" alt="Pistachio Ice Cream" class="food-img">
                 <div class="food-info">
                     <h3>Pistachio Dream</h3>
                     <p>Rich and creamy pistachio flavored ice cream with real pistachio pieces</p>
@@ -484,7 +511,7 @@
             </div>
 
             <div class="food-card">
-                <img src="https://cdn.pixabay.com/photo/2017/11/30/08/56/ice-cream-2987955_1280.jpg" alt="Chocolate Ice Cream" class="food-img">
+                <img loading="lazy" decoding="async" src="https://cdn.pixabay.com/photo/2017/11/30/08/56/ice-cream-2987955_1280.jpg" alt="Chocolate Ice Cream" class="food-img">
                 <div class="food-info">
                     <h3>Chocolate Delight</h3>
                     <p>Premium chocolate ice cream with chocolate sauce and chocolate chips</p>
@@ -505,33 +532,49 @@
         </div>
     </section>
 
+    </main>
+
     <script>
-        // Toggle mobile menu
+        // Mobile navigation
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
 
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute("aria-label", "Open navigation menu");
+        }
+
         hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
+            const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+            hamburger.classList.toggle("active", !isOpen);
+            navMenu.classList.toggle("active", !isOpen);
+            hamburger.setAttribute("aria-expanded", String(!isOpen));
+            hamburger.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
         });
 
-        // Close mobile menu when clicking a nav link
-        document.querySelectorAll(".nav-link").forEach(link =>
-            link.addEventListener("click", () => {
-                hamburger.classList.remove("active");
-                navMenu.classList.remove("active");
-            })
-        );
+        // Close the menu after choosing a section
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
 
-        // Change navbar style on scroll
-        window.addEventListener("scroll", () => {
-            const navbar = document.querySelector(".navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
+        // Close the menu with the Escape key
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closeMenu();
+                hamburger.focus();
             }
         });
+
+        // Update the navbar appearance while scrolling
+        const navbar = document.querySelector(".navbar");
+        function updateNavbar() {
+            navbar.classList.toggle("scrolled", window.scrollY > 50);
+        }
+
+        window.addEventListener("scroll", updateNavbar, { passive: true });
+        updateNavbar();
     </script>
 </body>
 
